@@ -34,16 +34,11 @@ function render(variables = {}) {
   let cargo = variables.role != null ? variables.role : "add role";
   let pais = variables.country != null ? variables.country : "country";
   let ciudad = variables.city != null ? variables.city : "city";
-  let twitter = variables.twitter != null ? variables.twitter : "add twitter";
-  let github = variables.github != null ? variables.github : "add github";
-  let instagram =
-    variables.instagram != null ? variables.instagram : "add instagram";
-  let linkedin =
-    variables.linkedin != null ? variables.linkedin : "add linkedin";
-  let redsSociales =
-    variables.socialMediaPosition != "position-left"
-      ? "position-rigth"
-      : variables.socialMediaPosition;
+  let twitter = variables.twitter != null ? variables.twitter : "";
+  let github = variables.github != null ? variables.github : "";
+  let instagram = variables.instagram != null ? variables.instagram : "";
+  let linkedin = variables.linkedin != null ? variables.linkedin : "";
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
@@ -51,11 +46,11 @@ function render(variables = {}) {
           <h1>${nombre} ${apellido}</h1>
           <h2>${cargo}</h2>
           <h3>${ciudad}, ${pais}</h3>
-          <ul class="${redsSociales}">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i> ${twitter}</a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i> ${github}</a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i> ${linkedin}</a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i> ${instagram}</a></li>
+          <ul class="${variables.socialMediaPosition}">
+            <li><a href="https://twitter.com/${twitter}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${github}" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${linkedin}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${instagram}" target="_blank"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
